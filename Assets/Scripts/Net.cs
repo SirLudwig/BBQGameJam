@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Net : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody2D rbA;
+    public Rigidbody2D rbA;
 
     [SerializeField]
     private Rigidbody2D rbB;
@@ -34,6 +33,11 @@ public class Net : MonoBehaviour
         points[points.Length-1] = (rope.nodes[0].transform.position);
 
         collider.points = points;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return rbA.transform.position;
     }
 
     public void DisableCollisions()

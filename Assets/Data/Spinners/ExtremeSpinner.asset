@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d93f8f9fd82bbd48a190646f591a684, type: 3}
+  m_Name: ExtremeSpinner
+  m_EditorClassIdentifier: 
+  level: 1
+  image: {fileID: 21300000, guid: ef05913833c139c419172b556f158019, type: 3}
+  defaultPullingSpeed: 0
+  loweringSpeed: 0
+  minTemp: 0
+  maxTemp: 0
+  heatupMultiplier: 0
+  temperatureInfluence:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  coolingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  coolOffPace: 0
+  description: This is an extreme spinner

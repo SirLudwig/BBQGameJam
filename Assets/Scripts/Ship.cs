@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    [SerializeField]
-    private BedObject bed;
+    public Character character;
 
-    [SerializeField]
-    private Spinner spinner;
+    public BedObject bed;
 
-    private Character character;
+    public Spinner spinner;
 
     private void Start()
     {
         GameManager.Instance.OnDayEnded += RefillCharacterEnergy;
         GameManager.Instance.OnDayEnded += spinner.ResetValues;
+
+        RefillCharacterEnergy();
     }
 
     public void RefillCharacterEnergy()

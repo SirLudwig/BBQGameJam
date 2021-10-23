@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab8819ea66b94a46b34242f6a6bb0f6, type: 3}
   m_Name: DefaultBed
   m_EditorClassIdentifier: 
-  energyFillAmount: 30
+  image: {fileID: 21300000, guid: ef05913833c139c419172b556f158019, type: 3}
+  energyFillAmount: 5
   description: Default bed
