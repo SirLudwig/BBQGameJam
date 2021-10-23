@@ -16,7 +16,7 @@ public class Spinner : MonoBehaviour
 
     private void Start()
     {
-        currentTemp = spinner.minTemp;
+        ResetValues();
     }
 
     private void Update()
@@ -40,6 +40,17 @@ public class Spinner : MonoBehaviour
         
     }
 
+    public void ResetValues()
+    {
+        currentTemp = spinner.minTemp;
+        currentWeight = 0;
+    }
+
+    public void UpdateSpinner(SpinnerObject newSpinner)
+    {
+        spinner = newSpinner;
+    }
+
     public void Pull()
     {
         net.EnableCollisions();
@@ -54,7 +65,7 @@ public class Spinner : MonoBehaviour
 
     public void Lower()
     {
-        net.DisableCollisions();
+        //net.DisableCollisions();
         net.PullingSpeed = -spinner.loweringSpeed;
     }
 
