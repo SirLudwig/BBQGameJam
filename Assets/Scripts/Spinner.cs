@@ -5,33 +5,68 @@ using UnityEngine;
 public class Spinner : MonoBehaviour
 {
     [SerializeField]
-    SpinnerObject spinner;
+    private SpinnerObject spinner;
+
+    [SerializeField]
+    private Net net;
 
     public float currentTemp;
     public float currentWeight;
+    public float pullingSpeed;
 
-    public void Update()
+    private void Start()
     {
-        if(Input.GetKey(KeyCode.Space))
+        currentTemp = spinner.minTemp;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.S))
         {
-            Pull();
+            Lower();
         }
         else
         {
-            Cool();
+            pullingSpeed = (1 - spinner.temperatureInfluence.Evaluate(Mathf.InverseLerp(spinner.minTemp, spinner.maxTemp, currentTemp))) * spinner.defaultPullingSpeed;
+            if (Input.GetKey(KeyCode.W))
+            {
+                Pull();
+            }
+            else
+            {
+                Cool();
+            }
         }
+        
     }
 
     public void Pull()
     {
-        currentTemp += spinner.weightInfluence.Evaluate(Mathf.Clamp(currentTemp, spinner.minTemp, spinner.maxTemp) * currentWeight * Time.deltaTime);
+        net.EnableCollisions();
+        currentTemp += currentWeight * spinner.heatupMultiplier * Time.deltaTime;
+        if(currentTemp > spinner.maxTemp)
+        {
+            currentTemp = spinner.maxTemp;
+        }
+
+        net.PullingSpeed = pullingSpeed;
+    }
+
+    public void Lower()
+    {
+        net.DisableCollisions();
+        net.PullingSpeed = -spinner.loweringSpeed;
     }
 
     public void Cool()
     {
-        if(currentTemp > 1)
+        net.PullingSpeed = 0;
+
+        currentTemp -= spinner.coolingCurve.Evaluate(Mathf.InverseLerp(spinner.minTemp, spinner.maxTemp, currentTemp)) * spinner.coolOffPace * Time.deltaTime;
+
+        if (currentTemp < spinner.minTemp)
         {
-            currentTemp -= spinner.coolOffPace * Time.deltaTime;
+            currentTemp = spinner.minTemp;
         }
     }
 
