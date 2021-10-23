@@ -36,7 +36,7 @@ public class FishesSpawner : MonoBehaviour
         GameObject newFish = Instantiate(_fishPrefab, randomPosition, quaternion.identity);
         newFish.GetComponent<FishController>().SetStats(randomFish.Stats);
 
-        //newFish.GetComponent<FishController>().SetConteiner(_meshCollider);
+        newFish.GetComponent<FishController>().SetField(_meshCollider);
 
     }
 
@@ -62,10 +62,7 @@ public class FishesSpawner : MonoBehaviour
 
             if (random <= currentProb)
             {
-                if (random >= fish.MinProb && random <= fish.MaxProb)
-                {
-                    return fish;
-                }
+                return fish;
             }
         }
 
