@@ -33,6 +33,7 @@ public class ShopUI : MonoBehaviour
 
                 item.image.sprite = bed.image;
                 item.Description = bed.description;
+                item.Price = bed.price;
                 item.button.onClick.AddListener(delegate { GameManager.Instance.UnlockBed(bed); Refresh(); });
 
                 spawnedItems.Add(item);
@@ -47,6 +48,7 @@ public class ShopUI : MonoBehaviour
 
                 item.image.sprite = spinner.image;
                 item.Description = spinner.description;
+                item.Price = spinner.price;
                 item.button.onClick.AddListener(delegate { GameManager.Instance.UnlockSpinner(spinner); Refresh(); });
 
                 spawnedItems.Add(item);

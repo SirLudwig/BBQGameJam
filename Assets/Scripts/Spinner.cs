@@ -80,6 +80,7 @@ public class Spinner : MonoBehaviour
         for(int i = net.fishInNet.Count - 1; i >= 0; i--)
         {
             GameManager.Instance.money += net.fishInNet[i]._stats.Value;
+            GameManager.Instance.points += net.fishInNet[i]._stats.Value;
             Destroy(net.fishInNet[i].gameObject);
         }
     }

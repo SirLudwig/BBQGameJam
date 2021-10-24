@@ -26,8 +26,6 @@ public class MainLine : MonoBehaviour
         positions[0] = new Vector2(positionA.position.x, positionA.position.y);
         positions[1] = positionA.TransformPoint(positionB.position);
 
-        Debug.Log("Setting positions: " + positions[0] +", " + positions[1]);
-
         line.SetPosition(0, positions[0]);
         line.SetPosition(1, positions[1]);
     }

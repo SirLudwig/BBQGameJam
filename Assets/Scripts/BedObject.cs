@@ -10,4 +10,5 @@ public class BedObject : ScriptableObject
 
     public float energyFillAmount;
     public string description;
+    public int price;
 }

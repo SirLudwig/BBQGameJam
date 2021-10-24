@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00c532b1798ee724c98c8a2bf74fc7bc, type: 3}
-  m_Name: Polstock
+  m_Name: Octopus
   m_EditorClassIdentifier: 
-  FishSprite: {fileID: 21300000, guid: ac96abbbe156dce45a441ff9bc60e849, type: 3}
-  Name: Polstrock
-  Value: 30
-  Speed: 0.5
-  Weight: 4
+  FishSprite: {fileID: 21300000, guid: ba1c57924058c864aafd243ec64f8b0d, type: 3}
+  Name: Octopus
+  Value: 100
+  Speed: 1
+  Weight: 5

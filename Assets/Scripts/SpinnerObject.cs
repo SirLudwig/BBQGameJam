@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SpinnerObject : ScriptableObject
 {
     public int level;
+    public int price;
 
     public Sprite image;
 

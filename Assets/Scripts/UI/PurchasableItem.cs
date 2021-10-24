@@ -7,7 +7,10 @@ using TMPro;
 public class PurchasableItem : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI descriptionText;
+
+    [SerializeField]
+    private TextMeshProUGUI priceText;
 
     public Image image;
     public Button button;
@@ -16,11 +19,19 @@ public class PurchasableItem : MonoBehaviour
     {
         get
         {
-            return text.text;
+            return descriptionText.text;
         }
         set
         {
-            text.SetText(value);
+            descriptionText.SetText(value);
+        }
+    }
+
+    public int Price
+    {
+        set
+        {
+            priceText.text = value.ToString() + " PLN";
         }
     }
 }
