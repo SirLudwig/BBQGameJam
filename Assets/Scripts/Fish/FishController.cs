@@ -131,6 +131,11 @@ public class FishController : MonoBehaviour
             direction = Vector2.up * 2;
         }
 
+        if(transform.position.y > -0.2f)
+        {
+            direction = new Vector2(-1, -1);
+        }
+
         _rigidbody.velocity = direction * _speed;
 
         if (distanceToTarget < 0.5f)
