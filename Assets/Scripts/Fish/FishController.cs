@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class FishController : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] private FishStatistics _stats;
+    public FishStatistics _stats;
     private float _speed;
     private float _value;
 
@@ -17,6 +17,8 @@ public class FishController : MonoBehaviour
 
     private BoxCollider2D _field;
     private float collistionTimer;
+
+    public bool isInNet = false;
 
     public void SetField(BoxCollider2D value)
     {
@@ -55,6 +57,11 @@ public class FishController : MonoBehaviour
 
     private void Update()
     {
+        if(isInNet)
+        {
+            return;
+        }
+
         Movement();
         
         if (_currentWaypoint == 0 && transform.rotation.y == 0)
@@ -73,9 +80,13 @@ public class FishController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(isInNet)
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Fish")
         {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>(), false);
             collistionTimer = 0;
             ChangeDirection();
         }
@@ -84,6 +95,11 @@ public class FishController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if(isInNet)
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Fish")
         {
             collistionTimer -= Time.deltaTime;
@@ -91,7 +107,6 @@ public class FishController : MonoBehaviour
             if (collistionTimer < 0)
             {
                 collistionTimer = 0;
-                Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>(), true);
             }
         }
     }
@@ -117,7 +132,7 @@ public class FishController : MonoBehaviour
 
 
 
-        _rigidbody.velocity = direction * _speed * Time.deltaTime;
+        _rigidbody.velocity = direction * _speed;
 
         if (distanceToTarget < 0.5f)
         {

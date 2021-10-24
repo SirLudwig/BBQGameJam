@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c532b1798ee724c98c8a2bf74fc7bc, type: 3}
   m_Name: Rohu
   m_EditorClassIdentifier: 
-  FishSprite: {fileID: 0}
+  FishSprite: {fileID: 21300000, guid: f5576eb71bb606742b8575f33db334a0, type: 3}
   Name: Rohu
-  Value: 0
-  Speed: 50
-  Weight: 0
+  Value: 40
+  Speed: 0.5
+  Weight: 2

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c532b1798ee724c98c8a2bf74fc7bc, type: 3}
   m_Name: Mackerel
   m_EditorClassIdentifier: 
-  FishSprite: {fileID: 21300000, guid: bfef3a3c1ec032c4b8715faca966d729, type: 3}
+  FishSprite: {fileID: 21300000, guid: 68043ae100828a64297b29cd32cdf8db, type: 3}
   Name: Mackerel
-  Value: 0
-  Speed: 50
-  Weight: 0
+  Value: 20
+  Speed: 0.5
+  Weight: 3

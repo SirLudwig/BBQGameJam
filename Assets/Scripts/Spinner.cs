@@ -23,6 +23,7 @@ public class Spinner : MonoBehaviour
 
         GameManager.Instance.OnDiveEnd += delegate { Lock(); };
         GameManager.Instance.OnGameLost += delegate { Lock(); };
+        GameManager.Instance.OnDiveEnd += delegate { DestroyFishInNet(); };
         GameManager.Instance.OnDayEnded += delegate { Unlock(); };
     }
 
@@ -33,6 +34,8 @@ public class Spinner : MonoBehaviour
             net.PullingSpeed = 0f;
             return;
         }
+
+        currentWeight = net.GetTotalMass();
 
         if(Mathf.Abs(maxHeight - net.GetPosition().y) > 1)
         {
@@ -71,6 +74,15 @@ public class Spinner : MonoBehaviour
         
     }
 
+    public void DestroyFishInNet()
+    {
+        Debug.Log("Fish found: " + net.fishInNet.Count);
+        for(int i = net.fishInNet.Count - 1; i >= 0; i--)
+        {
+            GameManager.Instance.money += net.fishInNet[i]._stats.Value;
+            Destroy(net.fishInNet[i].gameObject);
+        }
+    }
     public void Lock()
     {
         isLocked = true;

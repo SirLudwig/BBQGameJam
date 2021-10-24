@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Net : MonoBehaviour
 {
+    public List<FishController> fishInNet = new List<FishController>();
+
     public Rigidbody2D rbA;
 
     [SerializeField]
@@ -35,6 +37,17 @@ public class Net : MonoBehaviour
         collider.points = points;
     }
 
+    public float GetTotalMass()
+    {
+        float totalMass = 0f;
+        foreach(FishController fish in fishInNet)
+        {
+            totalMass += fish._stats.Weight;
+        }
+
+        return totalMass;
+    }
+
     public Vector2 GetPosition()
     {
         return rbA.transform.position;
@@ -60,7 +73,8 @@ public class Net : MonoBehaviour
     {
         if(collision.tag == "Fish")
         {
-            Debug.Log("Fish caught!");
+            collision.GetComponent<FishController>().isInNet = true;
+            fishInNet.Add(collision.GetComponent<FishController>());
         }
     }
 
@@ -68,7 +82,8 @@ public class Net : MonoBehaviour
     {
         if(collision.tag == "Fish")
         {
-            Debug.Log("Fish released");
+            collision.GetComponent<FishController>().isInNet = false;
+            fishInNet.Remove(collision.GetComponent<FishController>());
         }
     }
 }

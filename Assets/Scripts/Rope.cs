@@ -49,8 +49,8 @@ public class Rope : MonoBehaviour
         nodeAmount = (int)(length / distanceBetweenNodes);
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = nodeAmount;
-        lineRenderer.startWidth = 0.2f;
-        lineRenderer.endWidth = 0.2f;
+        lineRenderer.startWidth = 1.3f;
+        lineRenderer.endWidth = 1.3f;
 
         Generate();
 
