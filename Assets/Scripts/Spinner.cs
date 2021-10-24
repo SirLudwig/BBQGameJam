@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spinner : MonoBehaviour
 {
     public SpinnerObject spinner;
+    public SpinnerUI spinnerUI;
 
     public Net net;
 
@@ -29,6 +30,8 @@ public class Spinner : MonoBehaviour
 
     private void Update()
     {
+        spinnerUI.UpdateColor(spinner.temperatureInfluence.Evaluate(Mathf.InverseLerp(spinner.minTemp, spinner.maxTemp, currentTemp)));
+
         if(isLocked)
         {
             net.PullingSpeed = 0f;
@@ -62,7 +65,7 @@ public class Spinner : MonoBehaviour
         else
         {
             pullingSpeed = (1 - spinner.temperatureInfluence.Evaluate(Mathf.InverseLerp(spinner.minTemp, spinner.maxTemp, currentTemp))) * spinner.defaultPullingSpeed;
-            if (Input.GetKey(KeyCode.W) && net.GetPosition().y < maxHeight)
+            if (Input.GetKey(KeyCode.W) && Mathf.Abs(maxHeight - net.GetPosition().y) > 0.2f)
             {
                 Pull();
             }
@@ -87,6 +90,7 @@ public class Spinner : MonoBehaviour
     public void Lock()
     {
         isLocked = true;
+        spinnerUI.StopPlay();
     }
 
     public void Unlock()
@@ -108,6 +112,7 @@ public class Spinner : MonoBehaviour
     public void Pull()
     {
         net.EnableCollisions();
+        spinnerUI.StartPlay();
         currentTemp += currentWeight * spinner.heatupMultiplier * Time.deltaTime;
         if(currentTemp > spinner.maxTemp)
         {
@@ -125,6 +130,7 @@ public class Spinner : MonoBehaviour
 
     public void Cool()
     {
+        spinnerUI.StopPlay();
         net.PullingSpeed = 0;
 
         currentTemp -= spinner.coolingCurve.Evaluate(Mathf.InverseLerp(spinner.minTemp, spinner.maxTemp, currentTemp)) * spinner.coolOffPace * Time.deltaTime;

@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d93f8f9fd82bbd48a190646f591a684, type: 3}
   m_Name: ExtremeSpinner
   m_EditorClassIdentifier: 
-  level: 1
-  image: {fileID: 21300000, guid: ef05913833c139c419172b556f158019, type: 3}
-  defaultPullingSpeed: 5
-  loweringSpeed: 5
+  level: 3
+  price: 700
+  image: {fileID: 21300000, guid: a942f870c44d59d4c822d5ea7ccae924, type: 3}
+  defaultPullingSpeed: 8
+  loweringSpeed: 8
   minTemp: 20
-  maxTemp: 90
+  maxTemp: 120
   heatupMultiplier: 1
   temperatureInfluence:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.005847931
-      value: 0.40567017
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -32,10 +33,10 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.0000229
-      value: 0.63443375
-      inSlope: 0
-      outSlope: 0
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -47,8 +48,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0019493103
-      value: 0.58255005
+      time: 0
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -56,16 +57,16 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.9902344
-      value: 0.40330124
-      inSlope: 0
-      outSlope: 0
+      time: 1
+      value: 0.5
+      inSlope: -0.17791502
+      outSlope: -0.17791502
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.261046
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   coolOffPace: 10
-  description: This is an extreme spinner
+  description: A reel for real professionals

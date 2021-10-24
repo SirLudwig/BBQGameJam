@@ -57,10 +57,6 @@ public class FishController : MonoBehaviour
 
     private void Update()
     {
-        if(isInNet)
-        {
-            return;
-        }
 
         Movement();
         
@@ -130,7 +126,10 @@ public class FishController : MonoBehaviour
         Vector2 target = _currentWaypoint.Equals(0) ? new  Vector2(leftWaypoint, transform.position.y) : new  Vector2(rightWaypoint, transform.position.y);
         float distanceToTarget = Vector2.Distance(transform.position, target);
 
-
+        if(isInNet)
+        {
+            direction = Vector2.up * 2;
+        }
 
         _rigidbody.velocity = direction * _speed;
 

@@ -12,6 +12,8 @@ public class PurchasableItem : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI priceText;
 
+    public GameObject cover;
+
     public Image image;
     public Button button;
 

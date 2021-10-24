@@ -27,7 +27,6 @@ public class ShopUI : MonoBehaviour
 
         foreach (BedObject bed in GameManager.Instance.allAvailableBeds)
         {
-            if (!GameManager.Instance.unlockedBeds.Contains(bed))
             {
                 PurchasableItem item = Instantiate(itemPrefab, bedRoot);
 
@@ -36,13 +35,17 @@ public class ShopUI : MonoBehaviour
                 item.Price = bed.price;
                 item.button.onClick.AddListener(delegate { GameManager.Instance.UnlockBed(bed); Refresh(); });
 
+                if(GameManager.Instance.unlockedBeds.Contains(bed))
+                {
+                    item.cover.SetActive(true);
+                }
+
                 spawnedItems.Add(item);
             }
         }
 
         foreach (SpinnerObject spinner in GameManager.Instance.allAvailableSpinners)
         {
-            if (!GameManager.Instance.unlockedSpinners.Contains(spinner))
             {
                 PurchasableItem item = Instantiate(itemPrefab, spinnerRoot);
 
@@ -50,6 +53,11 @@ public class ShopUI : MonoBehaviour
                 item.Description = spinner.description;
                 item.Price = spinner.price;
                 item.button.onClick.AddListener(delegate { GameManager.Instance.UnlockSpinner(spinner); Refresh(); });
+
+                if(GameManager.Instance.unlockedSpinners.Contains(spinner))
+                {
+                    item.cover.SetActive(true);
+                }
 
                 spawnedItems.Add(item);
             }

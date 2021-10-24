@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
 
         if(Energy <= 0)
         {
+            Energy = 0;
             GameManager.Instance.OnGameLost?.Invoke();
         }
     }

@@ -39,6 +39,10 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(CoverSleep());
     }
 
+    public void RunRestartCover()
+    {
+        StartCoroutine(CoverGameRestart());
+    }
     public void Restart()
     {
         points = 0;
@@ -106,6 +110,29 @@ public class GameManager : Singleton<GameManager>
             GameManager.Instance.EndDay();
 
             yield return new WaitForSeconds(0.3f);
+
+            while (sleepingCover.color.a > 0)
+            {
+                sleepingCover.color = new Color(sleepingCover.color.r, sleepingCover.color.g, sleepingCover.color.b, sleepingCover.color.a - 5 * Time.deltaTime);
+                yield return null;
+            }
+            yield break;
+        }
+    }
+
+    public IEnumerator CoverGameRestart()
+    {
+        //while (true)
+        {
+            while (sleepingCover.color.a < 1)
+            {
+                sleepingCover.color = new Color(sleepingCover.color.r, sleepingCover.color.g, sleepingCover.color.b, sleepingCover.color.a + 5 * Time.deltaTime);
+                yield return null;
+            }
+
+            GameManager.Instance.Restart();
+
+            yield return new WaitForSeconds(0.5f);
 
             while (sleepingCover.color.a > 0)
             {

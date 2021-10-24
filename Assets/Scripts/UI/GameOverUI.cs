@@ -13,7 +13,7 @@ public class GameOverUI : MonoBehaviour
 
     public void Start()
     {
-        tryAgainButton.onClick.AddListener(delegate { GameManager.Instance.Restart(); });
+        tryAgainButton.onClick.AddListener(delegate { GameManager.Instance.RunRestartCover(); });
         quitButton.onClick.AddListener(delegate { Application.Quit(); });
         GameManager.Instance.OnGameLost += delegate { pointsText.text = GameManager.Instance.points + " POINTS"; };
     }

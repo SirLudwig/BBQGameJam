@@ -57,16 +57,18 @@ public class Net : MonoBehaviour
     {
         foreach(var node in rope.nodes)
         {
-            node.GetComponent<CircleCollider2D>().isTrigger = true;
+            node.GetComponent<CircleCollider2D>().enabled = false;
         }
+        collider.enabled = false;
     }
 
     public void EnableCollisions()
     {
         foreach (var node in rope.nodes)
         {
-            node.GetComponent<CircleCollider2D>().isTrigger = false;
+            node.GetComponent<CircleCollider2D>().enabled = true;
         }
+        collider.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

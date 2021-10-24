@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FishSprite: {fileID: 21300000, guid: 80b3fc816714f724fa660b9cfbdd8864, type: 3}
   Name: Viperfish
-  Value: 60
-  Speed: 0.5
+  Value: 40
+  Speed: 3
   Weight: 5
