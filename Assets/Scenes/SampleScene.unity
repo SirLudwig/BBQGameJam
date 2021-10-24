@@ -2164,7 +2164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ac0866574cfba4bbdbd970da7b3f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sleepButton: {fileID: 0}
 --- !u!1 &917456592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,6 +3658,10 @@ PrefabInstance:
       value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 3688368751091044213, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
+      propertyPath: _fishes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688368751091044213, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
       propertyPath: _fishes.Array.data[2].Stats
       value: 
       objectReference: {fileID: 11400000, guid: 1d69c039a2528f24b90cc70efc86ec4c, type: 2}
@@ -3666,6 +3669,10 @@ PrefabInstance:
       propertyPath: _fishes.Array.data[3].Stats
       value: 
       objectReference: {fileID: 11400000, guid: 0eaf10f57e295e94089246da9af0b463, type: 2}
+    - target: {fileID: 3688368751091044213, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
+      propertyPath: _fishes.Array.data[4].Stats
+      value: 
+      objectReference: {fileID: 11400000, guid: a84a186b57963174584a94f54e0b18e4, type: 2}
     - target: {fileID: 3688368751091044213, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
       propertyPath: _fishes.Array.data[1].Probability
       value: 17
@@ -3677,6 +3684,10 @@ PrefabInstance:
     - target: {fileID: 3688368751091044213, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
       propertyPath: _fishes.Array.data[3].Probability
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688368751091044213, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
+      propertyPath: _fishes.Array.data[4].Probability
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 3688368751302772653, guid: 0af869b53b9007d499eaa5f0d4669f48, type: 3}
       propertyPath: _fishes.Array.data[0].Stats
@@ -4985,8 +4996,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: -5036762478249837324, guid: 831b2940511d3bb4fb10a1c960311006, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
