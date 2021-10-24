@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab8819ea66b94a46b34242f6a6bb0f6, type: 3}
   m_Name: ComfyBed
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: ef05913833c139c419172b556f158019, type: 3}
+  image: {fileID: 21300000, guid: 2efd19a7d5e0fc142a0005fb101e67d7, type: 3}
   energyFillAmount: 60
   description: This is a comfy bed
+  price: 100
